@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ToDoModel>
+
+@{
+    ViewData["Title"] = "ToDo`s";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Books</h1>
+
+<div id="add-button" >
+    <a asp-controller="ToDo" asp-action="Create" class="btn btn-primary m-2">Add ToDo</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                FromDate
+            </th>
+            <th>
+                Done Date
+            </th>
+            <th>
+                To Date
+            </th>
+            <th>
+                Is Done
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoneDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDone)
+            </td>
+            <td>
+                <button id="delete-button" class="btn" value="delete"></button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
