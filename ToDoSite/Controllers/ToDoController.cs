@@ -10,10 +10,13 @@ namespace ToDoSite.Controllers
 {
     public class ToDoController : Controller
     {
-        public List<ToDoModel> Actions { get; set; }
+        public static List<ToDoModel> Actions { get; set; } = new List<ToDoModel>();
+        
         public ToDoController()
         {
-            Actions = new List<ToDoModel>() { new ToDoModel() { Title = "Kupit slona", DoneDate = DateTime.Now, ToDate = DateTime.Now.AddDays(33), FromDate = DateTime.Now - TimeSpan.FromDays(12) }, new ToDoModel() { Title = "Pokormit slona", DoneDate = DateTime.Now.AddDays(2), ToDate = DateTime.Now.AddDays(33), FromDate = DateTime.Now - TimeSpan.FromDays(12) }, new ToDoModel() { Title = "Pokormit slon2", DoneDate = DateTime.Now.AddDays(2), ToDate = DateTime.Now.AddDays(33), FromDate = DateTime.Now - TimeSpan.FromDays(12) } };
+            Actions.Add(new ToDoModel { Title = "Kupit slona", DoneDate = DateTime.Now, ToDate = DateTime.Now.AddDays(33), FromDate = DateTime.Now - TimeSpan.FromDays(12) });
+            Actions.Add(new ToDoModel() { Title = "Pokormit slona", DoneDate = DateTime.Now.AddDays(2), ToDate = DateTime.Now.AddDays(33), FromDate = DateTime.Now - TimeSpan.FromDays(12) });
+            Actions.Add(new ToDoModel() { Title = "Pokormit slon2", DoneDate = DateTime.Now.AddDays(2), ToDate = DateTime.Now.AddDays(33), FromDate = DateTime.Now - TimeSpan.FromDays(12) });
         }
 
         [HttpGet]
